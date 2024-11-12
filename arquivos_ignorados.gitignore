@@ -1,0 +1,15 @@
+# Arquivos Python
+*.pyc
+__pycache__/
+
+# Banco de dados local
+db.sqlite3
+
+# Diretório de uploads
+/media/
+
+# Arquivos de log
+*.log
+
+# Variáveis de ambiente
+*.env

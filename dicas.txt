@@ -1,0 +1,30 @@
+wsgi -> arquivo que gerencia os servidores
+urls -> arquivo que gerencia as urls. Defini os links acessiveis do site
+settings -> arquivo que diz onde o djando vai procurar determinada informação do projeto(onde fica localizada as pastas, apps do apl)
+
+Arquivo admin.py dentro dos apps(filme, por exemplo) é o arquivo que diz quais são as informações que vão estar dentro do admin
+
+comando para ver o site -> python manage.py runserver
+comando para criar um app -> django-admin startapp "nome"
+
+python manage.py makemigrations -> comando para criar a estrutura de migração do banco
+python manage.py migrate -> comando para usar quando queremos fazer uma modificação no banco
+    python manage.py createsuperuser -> comando para criar o super usuário
+       user -> vitor.perez
+       email -> vitorhernandezp7@gmail.com
+       pw: gdfasjketral1
+
+from .models import Filme -> quando importamos assim '.models' o ponto significa que o arquivo models está na mesma pasta do arquivo onde está sendo feita a importação
+
+****Como a página é renderizada? Primeiro precisamos criar a url, depois a view e depois o template****
+    dentro do urls.py(), tem o urlpatterns
+    dentro da views.py, a view homepage é puxada e renderiza a página homepage.html dentro de template
+
+    FBV -> function base view
+    CBV -> class base view
+
+Nas visões, no momento de renderizar, as informações que queremos passar do back para ela, são chamadas de context
+
+Nas views importadas, há diferença entre listview e detailview:
+    listview -> Retorna um object_list que é a lista de itens do modelo
+    detailview -> Retorna um object que é 1 item do modelo
