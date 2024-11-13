@@ -1,4 +1,7 @@
+from calendar import mdays
+
 from django.db import models
+from django.db.transaction import mark_for_rollback_on_error
 from django.utils import timezone
 
 LISTA_CATEGORIAS = (
@@ -18,3 +21,11 @@ class Filme(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Episodeo(models.Model):
+    filme = models.ForeignKey("Filme",related_name="episodeos", on_delete=models.CASCADE)
+    titulo = models.CharField(max_length=100)
+    video = models.URLField()
+
+    def __str__(self):
+        return self.filme.titulo + ' - ' +self.titulo
