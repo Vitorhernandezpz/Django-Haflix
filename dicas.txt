@@ -30,3 +30,4 @@ Nas views importadas, há diferença entre listview e detailview:
     listview -> Retorna um object_list que é a lista de itens do modelo
     detailview -> Retorna um object que é 1 item do modelo
 
+Para filtrar objects dentro das views, usamos get_object()

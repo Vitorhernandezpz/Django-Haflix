@@ -12,6 +12,24 @@ HomeFilmes Hashflix
     <p>{{ object.descricao }}</p>
     <img src="{{ object.thumb.url }}">
 
+    <h2>Episodeos</h2>
+    {% for episodeo in object.episodeos.all %}
+    <a href="{{ episodeo.video }}">
+        <p>Episódeo {{ forloop.counter }}: {{ episodeo.titulo }}</p>
+    </a>
+
+    {% endfor %}
+</div class="py-10">
+    <h2>Filmes Relacionados</h2>
+    {% for filme in filmes_relacionados %}
+        <p>
+            <a href="{% url 'filme:detalhesfilme' filme.id %}">
+                {{ filme.titulo }}
+            </a>
+        </p>
+    {% endfor %}
+<div>
+
 </div>
 
 {% endblock %}
