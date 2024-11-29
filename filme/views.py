@@ -30,6 +30,20 @@ class Detalhesfilmes(DetailView):
         context["filmes_relacionados"] = filmes_relacionados
         return context
 
+class Pesquisafilme(ListView):
+    template_name = "pesquisa.html"
+    model = Filme
+
+    # Edição do object_list
+    # Função para pegar o valor digitado na barra de pesquisa e retorna todos os filmes que contem o termo pesquisado que foi digitado na barra de pesquisa
+    def get_queryset(self):
+        termo_pesquisa = self.request.GET.get('query')
+        if termo_pesquisa:
+            object_list = self.model.objects.filter(titulo__icontains=termo_pesquisa)
+            return object_list
+        else:
+            return None
+
 #def homepage(request):
 #    return render(request,'homepage.html')
 
