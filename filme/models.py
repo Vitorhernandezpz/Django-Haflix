@@ -1,8 +1,7 @@
-from calendar import mdays
-
 from django.db import models
 from django.db.transaction import mark_for_rollback_on_error
 from django.utils import timezone
+from django.contrib.auth.models import AbstractUser
 
 LISTA_CATEGORIAS = (
     ("ANALISES","Análises"),
@@ -29,3 +28,6 @@ class Episodeo(models.Model):
 
     def __str__(self):
         return self.filme.titulo + ' - ' +self.titulo
+
+class Usuario(AbstractUser):
+    filmes_vistos = models.ManyToManyField("Filme")

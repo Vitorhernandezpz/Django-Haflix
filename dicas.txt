@@ -11,7 +11,7 @@ Após fazer uma edição no banco de dados por dentro do script, seguir esses pa
 python manage.py makemigrations -> comando para criar a estrutura de migração do banco
 python manage.py migrate -> comando para usar quando queremos fazer uma modificação no banco
     python manage.py createsuperuser -> comando para criar o super usuário
-       user -> vitor.perez
+       user -> vitorhernandezp7@gmail.com
        email -> vitorhernandezp7@gmail.com
        pw: gdfasjketral1
 
@@ -38,3 +38,6 @@ Para filtrar objects dentro das views, usamos get_object()
 context é o dicionario que tem todas as variaveis que as páginas html podem acessar
     Ao criar o arquivo 'novo_context.py' estamos criando um gerenciador de contextos para nosso app
     (a chave do dict é sempre o nome que vai estar no html)
+
+A classe usuário que definimos não é a mesma coisa que o user admin do django, é a nossa própria classe de usuário
+que vamos deixar ela também responsável por ser o user admin do nosso app.
