@@ -41,3 +41,6 @@ context é o dicionario que tem todas as variaveis que as páginas html podem ac
 
 A classe usuário que definimos não é a mesma coisa que o user admin do django, é a nossa própria classe de usuário
 que vamos deixar ela também responsável por ser o user admin do nosso app.
+
+
+Request.user -> pega o usuário que está logado(usuário da request)
