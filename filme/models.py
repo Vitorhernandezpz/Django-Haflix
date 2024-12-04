@@ -1,13 +1,15 @@
+from typing import Tuple
+
 from django.db import models
 from django.db.transaction import mark_for_rollback_on_error
 from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 
-LISTA_CATEGORIAS = (
-    ("ANALISES","Análises"),
-    ("PROGRAMACAO","Programação"),
-    ("APRESENTACAO","Apresentação"),
-    ("OUTROS","Outros"),
+LISTA_CATEGORIAS: tuple[tuple[str, str], tuple[str, str], tuple[str, str], tuple[str, str]] = (
+    ("CRYPTO","Crypto"),
+    ("RENDA FIXA ","Renda Fixa"),
+    ("RENDA VARIAVEL","Renda Variável"),
+    ("FIIS","Fiis"),
 )
 
 class Filme(models.Model):
