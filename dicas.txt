@@ -24,6 +24,8 @@ from .models import Filme -> quando importamos assim '.models' o ponto significa
     FBV -> function base view
     CBV -> class base view
 
+    Para passar um url para entendimento do python usamos ':', exemplo: filme:pesquisafilme
+
 Nas visões, no momento de renderizar, as informações que queremos passar do back para ela, são chamadas de context
 
 Nas views importadas, há diferença entre listview e detailview:
@@ -44,3 +46,5 @@ que vamos deixar ela também responsável por ser o user admin do nosso app.
 
 
 Request.user -> pega o usuário que está logado(usuário da request)
+
+Nas urls, quando criamos as views para login e logout, importamos as views prontas, para o path reconhecer os arquivos html, usamos o parametro template_name no as_view

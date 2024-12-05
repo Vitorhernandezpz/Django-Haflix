@@ -3,16 +3,17 @@ from lib2to3.fixes.fix_input import context
 from django.shortcuts import render
 from .models import Filme
 from django.views.generic import TemplateView, ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 class Homepage(TemplateView):
     template_name = "homepage.html"
 
-class Homefilmes(ListView):
+class Homefilmes(LoginRequiredMixin, ListView):
     template_name = "homefilmes.html"
     model = Filme
 
-class Detalhesfilmes(DetailView):
+class Detalhesfilmes(LoginRequiredMixin, DetailView):
     template_name = "detalhesfilme.html"
     model = Filme
 
@@ -20,6 +21,9 @@ class Detalhesfilmes(DetailView):
         filme = self.get_object()
         filme.visualizacoes += 1
         filme.save()
+        # Adicionando no banco o filme visto para o usuario de forma dinamica
+        usuario = request.user
+        usuario.filmes_vistos.add(filme)
         return super().get(request, *args, **kwargs) # Redireciona o usuario para a url final
 
     # super executa a função da super classe, no caso a detailview
@@ -30,7 +34,7 @@ class Detalhesfilmes(DetailView):
         context["filmes_relacionados"] = filmes_relacionados
         return context
 
-class Pesquisafilme(ListView):
+class Pesquisafilme(LoginRequiredMixin, ListView):
     template_name = "pesquisa.html"
     model = Filme
 
