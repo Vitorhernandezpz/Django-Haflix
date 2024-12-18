@@ -1,9 +1,10 @@
 from lib2to3.fixes.fix_input import context
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from .models import Filme
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import CriarContaForm
 
 # Create your views here.
 class Homepage(TemplateView):
@@ -57,6 +58,20 @@ class Pesquisafilme(LoginRequiredMixin, ListView):
 
 class Paginaperfil(LoginRequiredMixin, TemplateView):
     template_name = "editarperfil.html"
+
+class Criarconta(FormView):
+    template_name = "criarconta.html"
+    form_class = CriarContaForm
+
+
+    # Função que verifica se o formulario é valido, se todos os campos do form foram preenchidos e salva o form para criar o usuário no banco
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+    # Função espera um link como resposta e não um redirect
+    def get_success_url(self):
+        return reverse("filme:login")
 
 #def homepage(request):
 #    return render(request,'homepage.html')

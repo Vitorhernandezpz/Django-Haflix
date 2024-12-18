@@ -48,3 +48,17 @@ que vamos deixar ela também responsável por ser o user admin do nosso app.
 Request.user -> pega o usuário que está logado(usuário da request)
 
 Nas urls, quando criamos as views para login e logout, importamos as views prontas, para o path reconhecer os arquivos html, usamos o parametro template_name no as_view
+
+Usar esse comando para usar o crispy-forms no django com bootstrap ->
+pip install django-crispy-forms
+pip install crispy-bootstrap5
+
+{% csrf_token %} -> é uma verificação de segurança da comunicação do back com o front
+
+A classe CriaContaForm vai criar um usuário replicando a criação de formulario padrão que o django tem,
+que é UserCreationForm diz que vamos criar um usuário baseado nas informações do nosso modelo de usuário
+
+Reverse -> usamos quando a função que estamos espera receber um link/texto de link
+redirect -> usamos quando a função que estamos espera receber uma página html, para onde o usuário deve ser redirecionado
+
+Sempre que tiver um formulario que cria um registro no banco precisamos salvar ele com .save(), isso só em casos de formularios que cria itens no bd
