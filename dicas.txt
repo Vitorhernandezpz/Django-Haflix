@@ -62,3 +62,6 @@ Reverse -> usamos quando a função que estamos espera receber um link/texto de 
 redirect -> usamos quando a função que estamos espera receber uma página html, para onde o usuário deve ser redirecionado
 
 Sempre que tiver um formulario que cria um registro no banco precisamos salvar ele com .save(), isso só em casos de formularios que cria itens no bd
+Formview sempre recebe um formulário
+
+Quando chamamos a função get_sucess_url usamos o reverse e quando passamos por parâmetro usamos o reverse_lazy
