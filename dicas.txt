@@ -65,3 +65,5 @@ Sempre que tiver um formulario que cria um registro no banco precisamos salvar e
 Formview sempre recebe um formulário
 
 Quando chamamos a função get_sucess_url usamos o reverse e quando passamos por parâmetro usamos o reverse_lazy
+
+lib whitenoise serve para gerenciar nosso arquivos estaticos
